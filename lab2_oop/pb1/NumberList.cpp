@@ -1,0 +1,32 @@
+#include "NumberList.h"
+#include<stdio.h>
+void NumberList::Init()
+{
+	this->count = 0;
+}
+
+bool NumberList::Add(int x)
+{
+	if (count > 10)
+		return false;
+	this->numbers[count++] = x;
+		//return true;
+}
+
+void NumberList::Sort()
+{
+	for(int i = 0; i < count-1; i++)
+		for(int j = i+1; j < count; j++)
+			if (numbers[i] > numbers[j])
+			{
+				int aux = numbers[i];
+				numbers[i] = numbers[j];
+				numbers[j] = aux;
+			}
+}
+
+void Print(int count, int numbers[10])
+{
+	for (int i = 0; i < count; i++)
+		printf("%d", numbers[i]);
+}
